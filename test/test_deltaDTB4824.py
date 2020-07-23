@@ -45,7 +45,7 @@ Use these setting values in the temperature controller:
  * SP   1    (Decimal point position)
  * CoSH on   (ON: communication write-in enabled)
  * C-SL rtu
- * C-no 1    (Slave number)
+ * C-no 1    (Subordinate number)
  * BPS       (see the DEFAULT_BAUDRATE setting below, or the command line argument)
  * LEN  8
  * PRTY None
@@ -162,7 +162,7 @@ def main():
     text += '## Platform:       {:15}                           ##\n'.format(sys.platform)
     text += '## Port name (-D): {:15}                           ##\n'.format(instrument.serial.port)
     text += '##                                                           ##\n'
-    text += '## Slave address:  {:<15}                           ##\n'.format(instrument.address)
+    text += '## Subordinate address:  {:<15}                           ##\n'.format(instrument.address)
     text += '## Timeout:        {:0.3f} s                                   ##\n'.format(instrument.serial.timeout)
     text += '## Full file path: ' + os.path.abspath(__file__) + '\n'
     text += '###############################################################\n'
@@ -192,7 +192,7 @@ def main():
         # Should send '\x01\x06\x10\x01\x03\x20\xdd\xe2' OK!
         instrument.write_register(0x1001, 0x0320, functioncode=6)
         # Response from instrument: '\x01\x06\x10\x01\x03 \xdd\xe2' OK!
-        # Note that the slave will indicate an error if the CoSH parameter in the controller
+        # Note that the subordinate will indicate an error if the CoSH parameter in the controller
         # does not allow writing.
         # ASCII mode: Request  ':010610010320C5\r\n' 
         #             Response ':010610010320C5\r\n'

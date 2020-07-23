@@ -43,7 +43,7 @@ class Eurotherm3500( minimalmodbus.Instrument ):
 
     Args:
         * portname (str): port name
-        * slaveaddress (int): slave address in the range 1 to 247
+        * subordinateaddress (int): subordinate address in the range 1 to 247
 
     Implemented with these function codes (in decimal):
         
@@ -56,8 +56,8 @@ class Eurotherm3500( minimalmodbus.Instrument ):
 
     """
     
-    def __init__(self, portname, slaveaddress):
-        minimalmodbus.Instrument.__init__(self, portname, slaveaddress)
+    def __init__(self, portname, subordinateaddress):
+        minimalmodbus.Instrument.__init__(self, portname, subordinateaddress)
     
     ## Process value
     

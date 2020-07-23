@@ -179,8 +179,8 @@ RESPONSES['\x01\x03' + '\x01\x0c\x00\x01' + 'E\xf5']    = '\x01\x03' + '\x02\x00
 
 # get_pv_loop1: Return value 77.0
 # -----------------------------------------------------------------#
-# Message:  slave address 1, function code 3, register address 289, 1 register, CRC. 
-# Response: slave address 1, function code 3, 2 bytes, value=770, CRC=14709
+# Message:  subordinate address 1, function code 3, register address 289, 1 register, CRC. 
+# Response: subordinate address 1, function code 3, 2 bytes, value=770, CRC=14709
 RESPONSES['\x01\x03' + '\x01!\x00\x01' + '\xd5\xfc']    = '\x01\x03' + '\x02\x03\x02' + '\x39\x75'
 
 # get_pv_loop2(): Return value 19.2 
