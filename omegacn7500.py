@@ -88,7 +88,7 @@ class OmegaCN7500( minimalmodbus.Instrument ):
             * Linux: '/dev/ttyUSB0'
             * Windows: '/com3'
             
-        * slaveaddress (int): slave address in the range 1 to 247 (in decimal)
+        * subordinateaddress (int): subordinate address in the range 1 to 247 (in decimal)
 
     The controller can be used to follow predefined temperature programs, called patterns. 
     Eight patterns (numbered 0-7) are available, each having eight temperature steps (numbered 0-7).
@@ -120,8 +120,8 @@ class OmegaCN7500( minimalmodbus.Instrument ):
     
     """
     
-    def __init__(self, portname, slaveaddress):
-        minimalmodbus.Instrument.__init__(self, portname, slaveaddress)
+    def __init__(self, portname, subordinateaddress):
+        minimalmodbus.Instrument.__init__(self, portname, subordinateaddress)
         self.setpoint_max = SETPOINT_MAX
         self.time_max = TIME_MAX
         

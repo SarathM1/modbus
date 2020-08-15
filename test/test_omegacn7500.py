@@ -178,8 +178,8 @@ class TestCheckTimeValue(unittest.TestCase):
 # Communication using a dummy serial port #
 ###########################################
 
-class TestDummyCommunication_Slave1(unittest.TestCase):
-    """Testing using dummy communication, with data recorded for slaveaddress = 1
+class TestDummyCommunication_Subordinate1(unittest.TestCase):
+    """Testing using dummy communication, with data recorded for subordinateaddress = 1
     
     Most of the tests are for making sure that the communication details are OK.
     
@@ -277,7 +277,7 @@ class TestDummyCommunication_Slave1(unittest.TestCase):
         self.instrument.set_pattern_link_topattern(0, 1)
         
     def testGetAllPatternVariables(self):  # TODO: Change this to proper assertEqual   
-        _print_out( '\nSlave address 1:' )     
+        _print_out( '\nSubordinate address 1:' )     
         _print_out( self.instrument.get_all_pattern_variables(0) )
 
     def testSetAllPatternVariables(self):       
@@ -293,8 +293,8 @@ class TestDummyCommunication_Slave1(unittest.TestCase):
             7, 4, 1)         
 
 
-class TestDummyCommunication_Slave10(unittest.TestCase):
-    """Testing using dummy communication, with data recorded for slaveaddress = 10
+class TestDummyCommunication_Subordinate10(unittest.TestCase):
+    """Testing using dummy communication, with data recorded for subordinateaddress = 10
 
     """
 
@@ -368,7 +368,7 @@ class TestDummyCommunication_Slave10(unittest.TestCase):
         self.instrument.set_pattern_link_topattern(0, 1)
     
     def testGetAllPatternVariables(self):   # TODO: Change this to proper assertEqual
-        _print_out( '\nSlave address 10:' )     
+        _print_out( '\nSubordinate address 10:' )     
         _print_out( self.instrument.get_all_pattern_variables(0) )
         
         
@@ -396,47 +396,47 @@ from the dummy serial port.
 ## Recorded data from OmegaCN7500 ##
 ####################################
 
-# Slave address 1, get_pv()
+# Subordinate address 1, get_pv()
 RESPONSES['\x01\x03\x10\x00\x00\x01\x80\xca'] = '\x01\x03\x02\x00\xf68\x02'
 
-# Slave address 1, run()
+# Subordinate address 1, run()
 RESPONSES['\x01\x05\x08\x14\xff\x00\xce^'] = '\x01\x05\x08\x14\xff\x00\xce^'
     
-# Slave address 1, stop()
+# Subordinate address 1, stop()
 RESPONSES['\x01\x05\x08\x14\x00\x00\x8f\xae'] = '\x01\x05\x08\x14\x00\x00\x8f\xae'
     
-# Slave address 1, is_running()
+# Subordinate address 1, is_running()
 RESPONSES['\x01\x02\x08\x14\x00\x01\xfb\xae'] = '\x01\x02\x01\x00\xa1\x88'
    
-# Slave address 1, get_setpoint()
+# Subordinate address 1, get_setpoint()
 RESPONSES['\x01\x03\x10\x01\x00\x01\xd1\n'] = '\x01\x03\x02\x03\xe8\xb8\xfa'
     
-# Slave address 1, set_setpoint()    
+# Subordinate address 1, set_setpoint()    
 RESPONSES['\x01\x10\x10\x01\x00\x01\x02\x03\xe8\xb6\xfe'] = '\x01\x10\x10\x01\x00\x01T\xc9'
 
-# Slave address 1, get_control_mode()        
+# Subordinate address 1, get_control_mode()        
 RESPONSES['\x01\x03\x10\x05\x00\x01\x90\xcb'] = '\x01\x03\x02\x00\x00\xb8D'    
 #RESPONSES['\x01\x03\x10\x05\x00\x01\x90\xcb'] = '\x01\x03\x02\x00\x09xB'  # Use this for testing wrong controlmode
 
-# Slave address 1, set_control_mode()  
+# Subordinate address 1, set_control_mode()  
 RESPONSES['\x01\x10\x10\x05\x00\x01\x02\x00\x03\xf7\xc5'] = '\x01\x10\x10\x05\x00\x01\x15\x08'
 
-# Slave address 1, get_start_pattern_no()
+# Subordinate address 1, get_start_pattern_no()
 RESPONSES['\x01\x03\x100\x00\x01\x80\xc5'] = '\x01\x03\x02\x00\x029\x85'
 
-# Slave address 1, set_start_pattern_no()
+# Subordinate address 1, set_start_pattern_no()
 RESPONSES['\x01\x10\x100\x00\x01\x02\x00\x023\xa0'] = '\x01\x10\x100\x00\x01\x05\x06'
 
-# Slave address 1, set_pattern_step_setpoint() Pattern 0, step 3, value 333.3. See also below. 
+# Subordinate address 1, set_pattern_step_setpoint() Pattern 0, step 3, value 333.3. See also below. 
 RESPONSES['\x01\x10 \x03\x00\x01\x02\r\x05C2'] = '\x01\x10 \x03\x00\x01\xfa\t'
 
-# Slave address 1, set_pattern_step_time() Pattern 0, step 3, value 45. See also below. 
+# Subordinate address 1, set_pattern_step_time() Pattern 0, step 3, value 45. See also below. 
 RESPONSES['\x01\x10 \x83\x00\x01\x02\x00-X|'] = '\x01\x10 \x83\x00\x01\xfb\xe1'
 
-# Slave address 1, set_pattern_additional_cycles() Pattern 0, value 4. See also below. 
+# Subordinate address 1, set_pattern_additional_cycles() Pattern 0, value 4. See also below. 
 RESPONSES['\x01\x10\x10P\x00\x01\x02\x00\x04\xba\x02'] = '\x01\x10\x10P\x00\x01\x05\x18'
 
-# Slave address 1, get_all_pattern_variables() 
+# Subordinate address 1, get_all_pattern_variables() 
 # --- Valid for pattern 0 ---
 # SP0: 10   Time0: 10 
 # SP1: 20   Time1: 20
@@ -471,7 +471,7 @@ RESPONSES['\x01\x03\x10@\x00\x01\x81\x1e'] = '\x01\x03\x02\x00\x07\xf9\x86' # Ac
 RESPONSES['\x01\x03\x10P\x00\x01\x80\xdb'] = '\x01\x03\x02\x00\x04\xb9\x87' # Cycles
 RESPONSES['\x01\x03\x10`\x00\x01\x80\xd4'] = '\x01\x03\x02\x00\x01y\x84'    # Linked pattern
 
-# Slave address 1, set_all_pattern_variables()
+# Subordinate address 1, set_all_pattern_variables()
 # --- Valid for pattern 0 ---
 RESPONSES['\x01\x10 \x00\x00\x01\x02\x00d\x86y']       = '\x01\x10 \x00\x00\x01\n\t'     # SP0
 RESPONSES['\x01\x10 \x01\x00\x01\x02\x00\xc8\x87\xd5'] = '\x01\x10 \x01\x00\x01[\xc9'
@@ -495,46 +495,46 @@ RESPONSES['\x01\x10\x10@\x00\x01\x02\x00\x07\xf8\x93'] = '\x01\x10\x10@\x00\x01\
 RESPONSES['\x01\x10\x10P\x00\x01\x02\x00\x02:\x00']    = '\x01\x10\x10P\x00\x01\x05\x18' # Cycles, value 2
 RESPONSES['\x01\x10\x10`\x00\x01\x02\x00\x01\x7f\xf1'] = '\x01\x10\x10`\x00\x01\x05\x17' # Linked pattern
 
-# Slave address 10, get_pv()
+# Subordinate address 10, get_pv()
 RESPONSES['\n\x03\x10\x00\x00\x01\x81\xb1'] = '\n\x03\x02\x01\x03\\\x14'
 
-# Slave address 10, run()
+# Subordinate address 10, run()
 RESPONSES['\n\x05\x08\x14\xff\x00\xcf%'] = '\n\x05\x08\x14\xff\x00\xcf%'
     
-# Slave address 10, stop()
+# Subordinate address 10, stop()
 RESPONSES['\n\x05\x08\x14\x00\x00\x8e\xd5'] = '\n\x05\x08\x14\x00\x00\x8e\xd5'
     
-# Slave address 10, is_running()
+# Subordinate address 10, is_running()
 RESPONSES['\n\x02\x08\x14\x00\x01\xfa\xd5'] = '\n\x02\x01\x00\xa3\xac'   
     
-# Slave address 10, get_setpoint()
+# Subordinate address 10, get_setpoint()
 RESPONSES['\n\x03\x10\x01\x00\x01\xd0q'] = '\n\x03\x02\x03\xe8\x1d;'
     
-# Slave address 10, set_setpoint()    
+# Subordinate address 10, set_setpoint()    
 RESPONSES['\n\x10\x10\x01\x00\x01\x02\x03\xe8\xc5\xce'] = '\n\x10\x10\x01\x00\x01U\xb2'
 
-# Slave address 10, get_control_mode()        
+# Subordinate address 10, get_control_mode()        
 RESPONSES['\n\x03\x10\x05\x00\x01\x91\xb0'] = '\n\x03\x02\x00\x00\x1d\x85' 
 
-# Slave address 10, set_control_mode()  
+# Subordinate address 10, set_control_mode()  
 RESPONSES['\n\x10\x10\x05\x00\x01\x02\x00\x03\x84\xf5'] = '\n\x10\x10\x05\x00\x01\x14s'
 
-# Slave address 10, get_start_pattern_no()
+# Subordinate address 10, get_start_pattern_no()
 RESPONSES['\n\x03\x100\x00\x01\x81\xbe'] = '\n\x03\x02\x00\x02\x9cD'
 
-# Slave address 10, set_start_pattern_no()
+# Subordinate address 10, set_start_pattern_no()
 RESPONSES['\n\x10\x100\x00\x01\x02\x00\x02@\x90'] = '\n\x10\x100\x00\x01\x04}'
 
-# Slave address 10, set_pattern_step_setpoint() Pattern 0, step 3, value 333.3. See also below. 
+# Subordinate address 10, set_pattern_step_setpoint() Pattern 0, step 3, value 333.3. See also below. 
 RESPONSES['\n\x10 \x03\x00\x01\x02\r\x050\x02'] = '\n\x10 \x03\x00\x01\xfbr'
 
-# Slave address 10, set_pattern_step_time() Pattern 0, step 3, value 45. See also below. 
+# Subordinate address 10, set_pattern_step_time() Pattern 0, step 3, value 45. See also below. 
 RESPONSES['\n\x10 \x83\x00\x01\x02\x00-+L'] = '\n\x10 \x83\x00\x01\xfa\x9a'
 
-# Slave address 10, set_pattern_additional_cycles() Pattern 0, value 4. See also below. 
+# Subordinate address 10, set_pattern_additional_cycles() Pattern 0, value 4. See also below. 
 RESPONSES['\n\x10\x10P\x00\x01\x02\x00\x04\xc92'] = '\n\x10\x10P\x00\x01\x04c'
 
-# Slave address 10, get_all_pattern_variables() 
+# Subordinate address 10, get_all_pattern_variables() 
 # --- Valid for pattern 0 ---
 # SP0: 10   Time0: 10 
 # SP1: 20   Time1: 20
@@ -569,7 +569,7 @@ RESPONSES['\n\x03\x10@\x00\x01\x80e']    = '\n\x03\x02\x00\x07\\G'   # Actual st
 RESPONSES['\n\x03\x10P\x00\x01\x81\xa0'] = '\n\x03\x02\x00\x04\x1cF' # Cycles
 RESPONSES['\n\x03\x10`\x00\x01\x81\xaf'] = '\n\x03\x02\x00\x01\xdcE' # Linked pattern
 
-# Slave address 10, set_all_pattern_variables()
+# Subordinate address 10, set_all_pattern_variables()
 # --- Valid for pattern 0 ---
 RESPONSES['\n\x10 \x00\x00\x01\x02\x00d\xf5I']       = '\n\x10 \x00\x00\x01\x0br'    # SP0
 RESPONSES['\n\x10 \x01\x00\x01\x02\x00\xc8\xf4\xe5'] = '\n\x10 \x01\x00\x01Z\xb2'
